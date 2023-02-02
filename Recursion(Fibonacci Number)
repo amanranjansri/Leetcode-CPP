@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int fib(int n) {
+        //base condition
+
+        if(n==0)
+        {
+            return 0;
+        }
+        if(n==1)
+        {
+            return 1;
+        }
+        //recursive relation
+        return fib(n-1)+fib(n-2);
+        
+    }
+};
+//02-feb-2023
