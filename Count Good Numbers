@@ -1,0 +1,37 @@
+class Solution {
+public:
+    #define M 1000000007
+    long long solve(long long x, long long n)
+    {
+        //base case
+        if(n == 0)
+        {
+            return 1;
+        }
+        if(n == 1)
+        {
+            return x;
+        }
+
+        //recursive case
+        long long ans = solve(x,n/2);
+
+        if(n %2 == 0)
+        {
+            return (ans*ans)%M;
+        }
+        else
+        {
+            return (x*ans*ans)%M;
+        }
+    }
+    int countGoodNumbers(long long n) {
+        
+        long long even = (n+1)/2;
+        long long odd = n/2;
+
+        long long ans = solve(5, even) * solve(4, odd);
+        ans %= M;
+        return ans;
+    }
+};
