@@ -1,0 +1,27 @@
+class Solution {
+public:
+    double myPow(double x, long long n) {
+       if(n==0)
+        //base case if example:2^0=1 first base case so return 1
+        return 1;
+        if(n==1)
+        // second base case if n==1 example:2^1=2 so return base x
+        return x;
+        // third main case agar value 0 se kam ho toh example:2^-2=1/2^2 so x^-n=1/x^n so x=1/x or n=-n  
+        if(n<0){
+            x=1/x;
+            n=-n;
+        }
+        // recursion call if even case hein toh even=x^n/2*x^n or odd hein toh x* (x^2*x^2)
+        double ans=myPow(x,n/2);
+        if(n%2==0) {
+        //even case
+            return ans*ans;
+        }
+        else{
+        //odd case
+            return x*ans*ans;
+        }
+    
+    }
+};
