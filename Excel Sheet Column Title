@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string ans = "";
+        columnNumber--;
+        while(columnNumber>=0)
+        {
+            ans += char('A' + columnNumber%26);
+            columnNumber /= 26;
+            columnNumber--;
+        }
+        reverse(ans.begin(), ans.end());
+        return ans;
+    }
+};
